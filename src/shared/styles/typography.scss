@@ -1,0 +1,36 @@
+$inter-font-path: '../fonts';
+
+$inter-weights: (
+  400: 'Regular',
+  500: 'Medium',
+  700: 'Bold'
+);
+
+@each $weight, $variant in $inter-weights {
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: #{$weight};
+    font-display: swap;
+    src:
+      url('#{$inter-font-path}/Inter-#{$variant}.woff2') format('woff2'),
+      url('#{$inter-font-path}/Inter-#{$variant}.woff') format('woff'),
+      url('#{$inter-font-path}/Inter-#{$variant}.ttf') format('truetype');
+  }
+}
+
+$fontFamilyMain: 'Inter', 'Arial', sans-serif;
+
+$fontH1: 700 #{40px} / #{120%} $fontFamilyMain;
+$fontH2: 700 #{36px} / #{120%} $fontFamilyMain;
+$fontH3: 700 #{32px} / #{120%} $fontFamilyMain;
+$fontH4: 700 #{24px} / #{120%} $fontFamilyMain;
+$fontH5: 700 #{18px} / #{120%} $fontFamilyMain;
+$fontH6: 700 #{16px} / #{120%} $fontFamilyMain;
+
+$fontP1: 500 #{24px} / #{120%} $fontFamilyMain;
+$fontP2: 500 #{18px} / #{120%} $fontFamilyMain;
+$fontP3: 400 #{16px} / #{120%} $fontFamilyMain;
+$fontP4: 500 #{16px} / #{120%} $fontFamilyMain;
+$fontP5: 400 #{14px} / #{120%} $fontFamilyMain;
+$fontP6: 500 #{14px} / #{120%} $fontFamilyMain;

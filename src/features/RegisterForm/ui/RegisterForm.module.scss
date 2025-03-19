@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.form-field {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field > *:nth-child(n) {
+  max-width: none;
+}
+
+.input-btn,
+.input-btn-repeat {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.input-btn > svg > g,
+.input-btn-repeat > svg > g {
+  stroke: $grayMain;
+}
+
+.form-field:has(.input-password:hover) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:active) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:not(:placeholder-shown)) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:disabled) .input-btn > svg > g {
+  stroke: $black400;
+}
+
+.form-field:has(.input-password-repeat:hover) .input-btn-repeat > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password-repeat:active) .input-btn-repeat > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password-repeat:not(:placeholder-shown))
+  .input-btn-repeat
+  > svg
+  > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password-repeat:disabled) .input-btn-repeat > svg > g {
+  stroke: $black400;
+}
+
+.form-approval {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-approval > button {
+  max-width: none;
+}
+
+.form-approval > p {
+  color: $whiteMain;
+  font: $fontP5;
+}
+
+.form-approval > p > a {
+  text-decoration: underline;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.form-footer > p {
+  margin-left: auto;
+  color: $whiteMain;
+  font: $fontP3;
+  text-wrap: nowrap;
+}
+.form-login-btn {
+  margin-right: auto;
+  max-width: 75px;
+}

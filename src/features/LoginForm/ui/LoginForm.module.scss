@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-field {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-field > *:nth-child(n) {
+  max-width: none;
+}
+
+.input-btn {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.input-btn > svg > g {
+  stroke: $grayMain;
+}
+
+.form-field:has(.input-password:hover) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:active) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:not(:placeholder-shown)) .input-btn > svg > g {
+  stroke: $whiteMain;
+}
+.form-field:has(.input-password:disabled) .input-btn > svg > g {
+  stroke: $black400;
+}
+
+.form-forget-btn {
+  max-width: 148px !important;
+  text-wrap: nowrap;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.form-footer > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-footer > div > p {
+  color: $whiteMain;
+  font: $fontP3;
+  text-wrap: nowrap;
+}
+.form-register-btn {
+  max-width: 140px;
+}

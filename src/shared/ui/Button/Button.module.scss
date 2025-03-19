@@ -1,0 +1,100 @@
+.button {
+  font-family: $fontFamilyMain;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.large-button {
+  padding: 16px 18px;
+  font: $fontP2;
+  max-width: 211px;
+  height: 48px;
+  border-radius: $border-radius8;
+}
+.medium-button {
+  padding: 14px 16px;
+  font: $fontP4;
+  max-width: 201px;
+  height: 40px;
+  border-radius: $border-radius6;
+}
+.small-button {
+  padding: 12px 14px;
+  font: $fontP6;
+  max-width: 157px;
+  height: 32px;
+  border-radius: $border-radius4;
+}
+
+.primary-button {
+  background-color: $primaryMain;
+  color: $blackMain;
+}
+.primary-button:hover {
+  background-color: $primary700;
+}
+.primary-button:active {
+  background-color: $primary800;
+}
+.primary-button:disabled {
+  background-color: $white400;
+  color: $black400;
+}
+
+.secondary-button {
+  background-color: $secondaryMain;
+}
+.secondary-button:hover {
+  background-color: $secondary700;
+}
+.secondary-button:active {
+  background-color: $secondary800;
+}
+.secondary-button:disabled {
+  background-color: $white400;
+  color: $black400;
+}
+
+.clear-button {
+  background-color: inherit;
+  color: $whiteMain;
+}
+.clear-button:hover:not(:disabled) {
+  text-decoration: underline;
+}
+.clear-button:active {
+  color: $primary800;
+}
+.clear-button:disabled {
+  color: $white400;
+}
+
+.mini-button {
+  position: relative;
+}
+
+.mini-button > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mini-large-button {
+  width: 52px;
+}
+.mini-medium-button {
+  width: 46px;
+}
+.mini-small-button {
+  width: 36px;
+}

@@ -1,0 +1,175 @@
+.input-container {
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: $fontFamilyMain;
+}
+
+.input-wrapper {
+  background-color: $white300;
+  border-radius: $border-radius8;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+.medium-input-wrapper {
+  border-radius: $border-radius6;
+  padding: 11px 18px;
+}
+.small-input-wrapper {
+  border-radius: $border-radius4;
+  padding: 8px 18px;
+}
+
+.input-wrapper:has(.input:hover) {
+  background-color: $white400;
+}
+.input-wrapper:has(.input:disabled) {
+  background-color: $white400;
+  outline: none;
+}
+.error-input-wrapper {
+  outline: 1px solid $errorMain;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: $white500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: $fontFamilyMain;
+}
+
+.input[type='password'] {
+  letter-spacing: 3px;
+}
+
+.input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: $whiteMain !important;
+}
+.input:-webkit-autofill::first-line {
+  color: $whiteMain !important;
+  -webkit-text-fill-color: $whiteMain !important;
+}
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.input:-moz-autofill {
+  background-color: transparent !important;
+  -webkit-text-fill-color: $whiteMain !important;
+}
+
+.input-btn {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.input-svg:hover > path {
+  stroke: $whiteMain;
+}
+
+.input:hover {
+  color: $whiteMain;
+}
+.input-wrapper:has(.input:hover) .input-svg path {
+  stroke: $whiteMain;
+}
+
+.input:active {
+  color: $whiteMain;
+}
+.input-wrapper:has(.input:active) .input-svg path {
+  stroke: $whiteMain;
+}
+
+.input:focus {
+  color: $whiteMain;
+}
+.input-wrapper:has(.input:focus) .input-svg path {
+  stroke: $whiteMain;
+}
+
+.input:not(:placeholder-shown) {
+  color: $whiteMain;
+}
+.input-wrapper:has(.input:not(:placeholder-shown)) .input-svg path {
+  stroke: $whiteMain;
+}
+
+.input:disabled,
+.input:disabled::placeholder {
+  color: $black400;
+  cursor: not-allowed;
+  user-select: none;
+}
+.input-wrapper:has(.input:disabled) .input-svg {
+  cursor: not-allowed;
+}
+.input-wrapper:has(.input:disabled) .input-svg path {
+  stroke: $black400;
+}
+
+.error-input {
+  color: $errorMain !important;
+}
+.error-input-svg > path {
+  stroke: $errorMain !important;
+}
+
+.large-input {
+  font: $fontP2;
+}
+.medium-input {
+  font: $fontP3;
+}
+.small-input {
+  font: $fontP5;
+}
+
+.input-top-label {
+  color: $white600;
+}
+.input-container:has(.input:disabled) .input-top-label {
+  color: $white400;
+}
+
+.large-input-top-label {
+  font: $fontP2;
+}
+.medium-input-top-label {
+  font: $fontP4;
+}
+.small-input-top-label {
+  font: $fontP5;
+}
+
+.input-bottom-text {
+  font: $fontP6;
+  color: $white600;
+}
+.error-input-top-label,
+.error-input-bottom-text {
+  color: $errorMain;
+}
+.input-container:has(.input:disabled) .input-bottom-text {
+  color: $white400;
+}

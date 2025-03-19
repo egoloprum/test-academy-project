@@ -1,0 +1,75 @@
+.checkbox-wrapper {
+  display: inline-block;
+  cursor: pointer;
+}
+.checkbox-wrapper:has(.checkbox:disabled) {
+  cursor: not-allowed;
+}
+
+.large-checkbox-wrapper {
+  width: 20px;
+  height: 20px;
+}
+.medium-checkbox-wrapper {
+  width: 16px;
+  height: 16px;
+}
+.small-checkbox-wrapper {
+  width: 14px;
+  height: 14px;
+}
+
+.large-checkbox-svg {
+  width: 20px;
+  height: 20px;
+}
+.medium-checkbox-svg {
+  width: 16px;
+  height: 16px;
+}
+.small-checkbox-svg {
+  width: 14px;
+  height: 14px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox-svg > rect:first-child {
+  stroke: $primaryMain;
+  transition: stroke 0.3s ease;
+}
+.checkbox-svg > rect:last-child {
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.checkbox-wrapper:has(.checkbox:checked) .checkbox-svg > rect:last-child {
+  fill: $primaryMain;
+}
+
+.checkbox-wrapper:has(.checkbox:hover) .checkbox-svg > rect:first-child {
+  stroke: $primary700;
+}
+.checkbox-wrapper:has(.checkbox:checked:hover) .checkbox-svg > rect:last-child {
+  fill: $primary700;
+}
+
+.checkbox-wrapper:has(.checkbox:active) .checkbox-svg > rect:first-child {
+  stroke: $primary800;
+}
+.checkbox-wrapper:has(.checkbox:checked:active)
+  .checkbox-svg
+  > rect:last-child {
+  fill: $primary800;
+}
+
+.checkbox-wrapper:has(.checkbox:disabled) .checkbox-svg > rect:first-child {
+  stroke: $white500;
+}
+.checkbox-wrapper:has(.checkbox:checked:disabled)
+  .checkbox-svg
+  > rect:last-child {
+  fill: $white500;
+}
