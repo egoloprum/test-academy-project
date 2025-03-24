@@ -1,13 +1,24 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Eye, EyeOff } from '@/shared/assets/icons'
 import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 
+import { apiRegister } from '../api/apiRegister'
+import { RegisterValidator } from '../validations/validations'
+
 import styles from './RegisterForm.module.scss'
+
+interface RegisterData {
+  email: string
+  password: string
+  passwordRepeat: string
+}
 
 export const RegisterForm = ({}) => {
   const classNameForm = styles['form']
@@ -21,22 +32,45 @@ export const RegisterForm = ({}) => {
 
   const classNameFormApproval = styles['form-approval']
 
-  const classNameFormFooter = styles['form-footer']
+  const classNameFormBottom = styles['form-bottom']
   const classNameFormLoginBtn = styles['form-login-btn']
+
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors }
+  } = useForm<RegisterData>({
+    resolver: zodResolver(RegisterValidator),
+    mode: 'onChange',
+    reValidateMode: 'onChange'
+  })
 
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
   const [isShowPasswordRepeat, setIsShowPasswordRepeat] =
     useState<boolean>(false)
 
+  const onSubmit: SubmitHandler<RegisterData> = async data => {
+    try {
+      await apiRegister(data)
+    } catch (error) {
+      if (error instanceof Error) {
+        setError('email', { type: 'manual', message: error.message })
+      }
+    }
+  }
+
   return (
-    <form action="" className={classNameForm}>
+    <form className={classNameForm} onSubmit={handleSubmit(onSubmit)}>
       <fieldset className={classNameFormField}>
         <Input
           id="email"
           inputSize="large"
           type="email"
           topText="Электронная почта"
-          required>
+          isError={errors.email ? true : false}
+          bottomText={errors.email?.message || ''}
+          {...register('email')}>
           {' '}
         </Input>
         <Input
@@ -46,7 +80,9 @@ export const RegisterForm = ({}) => {
           topText="Пароль"
           placeholder=""
           className={classNameInputPassword}
-          required>
+          isError={errors.password ? true : false}
+          bottomText={errors.password?.message || ''}
+          {...register('password')}>
           <button
             className={classNameInputBtn}
             onClick={() => setIsShowPassword(!isShowPassword)}
@@ -62,7 +98,9 @@ export const RegisterForm = ({}) => {
           topText="Повторить пароль"
           placeholder=""
           className={classNameInputPasswordRepeat}
-          required>
+          isError={errors.passwordRepeat ? true : false}
+          bottomText={errors.passwordRepeat?.message || ''}
+          {...register('passwordRepeat')}>
           <button
             className={classNameInputBtnRepeat}
             onClick={() => setIsShowPasswordRepeat(!isShowPasswordRepeat)}
@@ -87,8 +125,8 @@ export const RegisterForm = ({}) => {
           </p>
         </div>
       </fieldset>
-      <footer className={classNameFormFooter}>
-        <p>Уже есть аккоунт?</p>
+      <div className={classNameFormBottom}>
+        <p>Уже есть аккаунт?</p>
         <Button
           buttonSize="medium"
           mode="clear"
@@ -96,7 +134,7 @@ export const RegisterForm = ({}) => {
           className={classNameFormLoginBtn}>
           Войдите
         </Button>
-      </footer>
+      </div>
     </form>
   )
 }

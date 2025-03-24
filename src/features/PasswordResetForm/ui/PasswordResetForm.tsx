@@ -1,9 +1,18 @@
 'use client'
 
+import { zodResolver } from '@hookform/resolvers/zod'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
 import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 
+import { PasswordResetValidator } from '../validations/validations'
+
 import styles from './PasswordResetForm.module.scss'
+
+type PasswordResetData = {
+  email: string
+}
 
 export const PasswordResetForm = ({}) => {
   const classNameForm = styles['form']
@@ -11,11 +20,25 @@ export const PasswordResetForm = ({}) => {
 
   const classNameFieldText = styles['field-text']
 
-  const classNameFormFooter = styles['form-footer']
+  const classNameFormBottom = styles['form-bottom']
   const classNameFormLoginBtn = styles['form-login-btn']
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<PasswordResetData>({
+    resolver: zodResolver(PasswordResetValidator),
+    mode: 'onChange',
+    reValidateMode: 'onChange'
+  })
+
+  const onSubmit: SubmitHandler<PasswordResetData> = async data => {
+    console.log(data)
+  }
+
   return (
-    <form action="" className={classNameForm}>
+    <form className={classNameForm} onSubmit={handleSubmit(onSubmit)}>
       <fieldset className={classNameFormField}>
         <p className={classNameFieldText}>
           Отправим ссылку на восстановление вам на почту
@@ -25,14 +48,16 @@ export const PasswordResetForm = ({}) => {
           inputSize="large"
           type="email"
           topText="Электронная почта"
-          required>
+          isError={errors.email ? true : false}
+          bottomText={errors.email?.message || ''}
+          {...register('email')}>
           {' '}
         </Input>
         <Button buttonSize="large" type="submit">
           Отправить
         </Button>
       </fieldset>
-      <footer className={classNameFormFooter}>
+      <div className={classNameFormBottom}>
         <p>Уже есть аккоунт?</p>
         <Button
           buttonSize="medium"
@@ -41,7 +66,7 @@ export const PasswordResetForm = ({}) => {
           className={classNameFormLoginBtn}>
           Войдите
         </Button>
-      </footer>
+      </div>
     </form>
   )
 }

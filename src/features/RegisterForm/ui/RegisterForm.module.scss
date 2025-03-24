@@ -77,12 +77,12 @@
   text-decoration: underline;
 }
 
-.form-footer {
+.form-bottom {
   display: flex;
   align-items: center;
   justify-items: center;
 }
-.form-footer > p {
+.form-bottom > p {
   margin-left: auto;
   color: $whiteMain;
   font: $fontP3;

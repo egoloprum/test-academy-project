@@ -29,7 +29,7 @@ export const LoginForm = ({}) => {
 
   const classNameFormForgetBtn = styles['form-forget-btn']
 
-  const classNameFormFooter = styles['form-footer']
+  const classNameFormBottom = styles['form-bottom']
   const classNameFormRegisterBtn = styles['form-register-btn']
 
   const {
@@ -121,7 +121,7 @@ export const LoginForm = ({}) => {
           Не помню пароль
         </Button>
       </fieldset>
-      <footer className={classNameFormFooter}>
+      <div className={classNameFormBottom}>
         <div>
           <Checkbox
             checkboxSize="large"
@@ -137,7 +137,7 @@ export const LoginForm = ({}) => {
           className={classNameFormRegisterBtn}>
           Регистрация
         </Button>
-      </footer>
+      </div>
     </form>
   )
 }
