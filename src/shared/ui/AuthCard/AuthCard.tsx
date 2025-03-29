@@ -17,7 +17,7 @@ export const AuthCard: FC<AuthCardProps> = ({ children, headerText }) => {
     <div className={classNameCardWrapper}>
       <div className={classNameCardHeader}>
         <Logo />
-        <h3>{headerText}</h3>
+        <h1>{headerText}</h1>
       </div>
       {children}
     </div>

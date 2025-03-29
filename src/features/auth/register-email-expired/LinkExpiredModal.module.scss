@@ -1,0 +1,34 @@
+.link-expired-wrapper {
+  max-width: 572px;
+  background-color: $white200;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-radius: $border-radius16;
+  font-family: $fontFamilyMain;
+}
+
+.link-expired-text-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  text-align: center;
+  align-items: center;
+  color: $whiteMain;
+  text-wrap: nowrap;
+}
+
+.link-expired-text-frame > h1 {
+  font: $fontH3;
+  margin: 0;
+}
+
+.link-expired-text-frame > p {
+  font: $fontP3;
+}
+
+.link-expired-btn {
+  max-width: none;
+}

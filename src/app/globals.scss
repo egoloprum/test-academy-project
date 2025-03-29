@@ -18,3 +18,29 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.toast-opening {
+  animation: slideIn 0.3s ease;
+}
+
+.toast-closing {
+  animation: slideOut 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(150%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(150%);
+  }
+}

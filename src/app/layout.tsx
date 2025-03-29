@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+
 import './globals.scss'
+import { ToastProvider } from '@/shared/ui/Toast'
 
 export const metadata: Metadata = {
   title: 'Academy platform',
@@ -13,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <ToastProvider>{children}</ToastProvider>
+      </body>
     </html>
   )
 }

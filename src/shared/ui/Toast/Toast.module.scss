@@ -1,0 +1,77 @@
+.toast-container {
+  position: fixed;
+  bottom: 40px;
+  right: 48px;
+  z-index: 1000;
+  width: 476px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 120px;
+  margin: 0;
+  padding: 0;
+}
+
+.toast-container > li {
+  list-style: none;
+  width: 476px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.toast {
+  font-family: $fontFamilyMain;
+  max-width: 476px;
+  width: 100%;
+  border: none;
+  border-radius: $border-radius8;
+  padding: 32px 46px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toast-success {
+  background-color: $successMain;
+}
+
+.toast-error {
+  background-color: $errorMain;
+}
+
+.toast-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: $whiteMain;
+}
+.toast-header-text {
+  font: $fontP4;
+}
+.toast-details-text {
+  font: $fontP6;
+}
+
+.toast-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.toast-svg-circle {
+  width: 100%;
+  height: 100%;
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.toast-svg-circle > g > path {
+  stroke: $whiteMain;
+}
+
+.toast-svg-x {
+  width: 18px;
+  height: 18px;
+}
+.toast-svg-x > path {
+  stroke: $whiteMain;
+}

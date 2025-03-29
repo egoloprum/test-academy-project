@@ -1,0 +1,21 @@
+.go-main-btn {
+  position: absolute;
+  top: 56px;
+  left: 84px;
+
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  text-wrap: nowrap;
+
+  max-width: 200px;
+}
+
+.go-main-btn > span {
+  padding-inline: 8px;
+}
+.go-main-btn:active > .go-main-btn-svg > g {
+  stroke: $primary800;
+}
